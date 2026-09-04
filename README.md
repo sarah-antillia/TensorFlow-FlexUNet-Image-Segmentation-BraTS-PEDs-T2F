@@ -4,7 +4,7 @@ Software Laboratory antillia.com<br><br>
 This is the first experiment of Image Segmentation for <b>BraTS-PEDs-T2F </b>
  based on
 our <a href="https://github.com/sarah-antillia/TensorFlow-FlexUNet-Image-Segmentation-Model">TensorFlowFlexUNet Model</a>
- (<b>TensorFlow Flexible UNet Image Segmentation Model for Multiclass</b>) and a 512x512 pixels cropped PNG
+ (<b>TensorFlow Flexible UNet Image Segmentation Model for Multiclass</b>) and a 512x512 pixels upscaled PNG
  <a href="https://drive.google.com/file/d/1dUfd8Cfas_NrslM2L1rMwK01eX49Xj4T/view?usp=sharing">
 Augmented-BraTS-PEDs-T2F-ImageMask-Dataset.zip</a> with colorized masks (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>),
   which was derived by us from the Kaggle website 
@@ -108,7 +108,7 @@ As shown above, the number of images of train and valid datasets is not large en
 <br>
 <h3>2.2 Derivation of BraTS-PEDs-T2F ImageMask Dataset</h3>
 The folder structure of the original dataset is as follows.
-It contains a lot of types of NIfTI files,
+It contains a lot of types of NIfTI image files,
 but we used only one type of T2F (<b>BraTS-PED-*-t2f.nii</b>) NIfTI file in this experiment.
 <pre>
 ./dataset
@@ -126,7 +126,7 @@ but we used only one type of T2F (<b>BraTS-PED-*-t2f.nii</b>) NIfTI file in this
 <b>Step 1</b><br>
 We generated a 512x512 pixels upscaled PNG ImageMask Dataset with colorized masks 
  from the image slices of <b>BraTS-PED-*-t2f.nii</b> 
-and the coresspoding mask slices of <b>BraTS-PED-*-seg.nii</b>.
+and the correspoding mask slices of <b>BraTS-PED-*-seg.nii</b>.
 However, for simplicity, we excluded all black empty masks and the corresponding images, because they are irrelevant for 
 training our segmentation model.<br><br>
 We also used the following class_color_mapping table to generate the colorized masks.
